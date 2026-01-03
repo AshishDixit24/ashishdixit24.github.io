@@ -1,4 +1,5 @@
 # My AI & Tech Notes
 
 ## Latest
-- (Your posts will be listed here)
+
+- [AI agents vs all others](posts/2026-01-10-ai-agents-conundrum/)
