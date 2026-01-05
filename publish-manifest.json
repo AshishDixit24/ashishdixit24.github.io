@@ -1,21 +1,16 @@
 {
-  "event_at_utc": "2026-01-05T17:45:05Z",
-  "command": "publish",
+  "event_at_utc": "2026-01-05T17:52:14Z",
+  "command": "unpublish",
   "issue_number": 4,
   "source": {
     "workbench_repo": "AshishDixit24/blog-workbench",
-    "workbench_sha": "9b30484624605af2e9edc3183f3d23d984122c46",
-    "run_id": "20724010726",
-    "run_number": "9",
+    "workbench_sha": "542cce1b321ef0a95ac04c9dd3c1247887071bdf",
+    "run_id": "20724216279",
+    "run_number": "10",
     "workflow": "Publish/unpublish/trash from issue comment"
   },
   "counts": {
-    "posts": 1
+    "posts": 0
   },
-  "posts": [
-    {
-      "post_id": "2026-01-12-ai-agenticai-conundrum",
-      "title": "Agentic AI conundrum"
-    }
-  ]
+  "posts": []
 }
