@@ -1,5 +1,7 @@
-# My AI & Tech Notes
+# Modern Engineering Brief
+
+Practical analysis of software, platforms, and the AI shift—without hype.
 
 ## Latest
 
-- [AI agents vs all others](posts/2026-01-10-ai-agents-conundrum/)
+- [Agentic AI conundrum](posts/2026-01-12-ai-agenticai-conundrum/)
