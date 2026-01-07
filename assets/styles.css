@@ -18,7 +18,7 @@ h1, h2, h3 { line-height: 1.2; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 pre { padding: 16px; overflow: auto; border: 1px solid #eee; border-radius: 10px; }
 
-/* ---- Phase 4.1: post + index polish ---- */
+/* Post polish */
 .post-header { margin-bottom: 28px; }
 .post-meta { opacity: 0.75; margin-top: 6px; }
 .post-desc { margin-top: 10px; opacity: 0.9; }
@@ -39,3 +39,21 @@ pre { padding: 16px; overflow: auto; border: 1px solid #eee; border-radius: 10px
 .post-list { padding-left: 18px; }
 .post-list-item { margin-bottom: 14px; }
 .post-excerpt { margin-top: 6px; opacity: 0.85; }
+
+/* Series UI */
+.series-banner {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+}
+.series-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+.series-nav a {
+  text-decoration: underline;
+  opacity: 0.9;
+}
