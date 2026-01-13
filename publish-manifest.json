@@ -1,16 +1,16 @@
 {
-  "event_at_utc": "2026-01-07T02:17:06Z",
+  "event_at_utc": "2026-01-13T00:10:31Z",
   "command": "publish",
-  "issue_number": 11,
+  "issue_number": 14,
   "source": {
     "workbench_repo": "AshishDixit24/blog-workbench",
-    "workbench_sha": "127a324c9a95d70bf44c99e0d0b103f03b416470",
-    "run_id": "20768430382",
-    "run_number": "24",
+    "workbench_sha": "0c68210c902b1de8b2a405d67978f7f6ca483f58",
+    "run_id": "20939554699",
+    "run_number": "26",
     "workflow": "Publish/unpublish/trash from issue comment"
   },
   "counts": {
-    "posts": 3
+    "posts": 4
   },
   "posts": [
     {
@@ -20,6 +20,10 @@
     {
       "post_id": "2026-01-23-series-blog-test1",
       "title": "Series  - blog  Test 1"
+    },
+    {
+      "post_id": "2026-01-25-series-blog-test-2",
+      "title": "Series blog test 2"
     },
     {
       "post_id": "hello-world",

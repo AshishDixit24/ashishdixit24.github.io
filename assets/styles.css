@@ -1,59 +1,290 @@
 /* DevNotes
-- Purpose: Minimal CSS for skeleton. Replace later with your design system.
-- Configure: Add typography scale, code highlighting theme, spacing system, etc.
+- Purpose: Modern flat baseline using CSS variables (tokens) + responsive layout.
+- Phase 7.1: header/nav/footer, accessible focus, reduced motion, base typography.
+- Theme toggle JS is added in Phase 7.2; CSS is ready now via [data-theme].
 */
-:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-body { margin: 0; line-height: 1.6; }
-a { color: inherit; }
-.container { max-width: 860px; margin: 0 auto; padding: 24px; }
 
-.site-header { border-bottom: 1px solid #eee; }
-.site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { font-weight: 700; text-decoration: none; }
-.nav a { margin-left: 14px; text-decoration: none; opacity: 0.85; }
-.nav a:hover { opacity: 1; }
+/* ---- Tokens ---- */
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-.site-footer { border-top: 1px solid #eee; margin-top: 48px; }
-h1, h2, h3 { line-height: 1.2; }
-code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-pre { padding: 16px; overflow: auto; border: 1px solid #eee; border-radius: 10px; }
+  --radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.10);
 
-/* Post polish */
-.post-header { margin-bottom: 28px; }
-.post-meta { opacity: 0.75; margin-top: 6px; }
-.post-desc { margin-top: 10px; opacity: 0.9; }
+  --container: 980px;
 
-.post-body img { max-width: 100%; height: auto; }
-.post-body a { text-decoration: underline; }
-.post-body h2 { margin-top: 32px; }
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 24px;
+  --space-6: 32px;
 
-.tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border: 1px solid #eee;
-  border-radius: 999px;
-  font-size: 12px;
-  margin-right: 6px;
+  /* Light (default) */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b1220;
+  --muted: #5b6475;
+  --border: #e8ecf2;
+  --link: #0b5fff;
+  --focus: #0b5fff;
 }
 
-.post-list { padding-left: 18px; }
-.post-list-item { margin-bottom: 14px; }
-.post-excerpt { margin-top: 6px; opacity: 0.85; }
+html[data-theme="dark"] {
+  --bg: #0b0f18;
+  --surface: #0f1624;
+  --text: #eef2ff;
+  --muted: #a8b1c4;
+  --border: #1f2a3d;
+  --link: #7ab0ff;
+  --focus: #7ab0ff;
+}
 
-/* Series UI */
-.series-banner {
-  border: 1px solid #eee;
-  border-radius: 12px;
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+}
+
+@media (max-width: 720px) {
+  .container { padding: var(--space-5) var(--space-4); }
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
+/* ---- Skip link ---- */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
   padding: 10px 12px;
-  margin-bottom: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ---- Header / Nav ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme="dark"] .site-header { background: rgba(11,15,24,.75); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.brand { min-width: 220px; }
+.brand-link {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+}
+.brand-link:hover { text-decoration: none; }
+.brand-tagline {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.icon-btn:hover { box-shadow: var(--shadow-md); text-decoration: none; }
+
+.nav-inline a {
+  margin-left: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  opacity: .9;
+}
+.nav-inline a:hover { background: rgba(0,0,0,.04); text-decoration: none; }
+html[data-theme="dark"] .nav-inline a:hover { background: rgba(255,255,255,.06); }
+
+.menu { position: relative; }
+.menu > summary { list-style: none; }
+.menu > summary::-webkit-details-marker { display: none; }
+
+/* Mobile nav panel */
+.nav-panel {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nav-panel a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+}
+.nav-panel a:hover { background: rgba(0,0,0,.04); text-decoration: none; }
+html[data-theme="dark"] .nav-panel a:hover { background: rgba(255,255,255,.06); }
+
+/* Responsive nav visibility */
+.nav-inline { display: none; }
+@media (min-width: 860px) {
+  .menu { display: none; }
+  .nav-inline { display: block; }
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+.footer-brand { font-weight: 800; }
+.footer-tagline { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.footer-right a { margin-left: 14px; }
+
+/* ---- Post ---- */
+.post { padding-top: var(--space-3); }
+.post-title { margin: 0; font-size: 34px; letter-spacing: -0.03em; }
+@media (max-width: 720px) { .post-title { font-size: 28px; } }
+
+.post-meta {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.meta-sep { opacity: .7; }
+
+.post-desc { margin-top: var(--space-3); color: var(--muted); }
+
+.post-body h2 { margin-top: 32px; }
+.post-body img { max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); }
+.post-body a { text-decoration: underline; }
+code, pre { font-family: var(--font-mono); }
+pre {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow: auto;
+}
+
+/* ---- Tags ---- */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---- Series ---- */
+.series-banner {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-4);
 }
 .series-nav {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
-.series-nav a {
-  text-decoration: underline;
-  opacity: 0.9;
+.series-nav a { text-decoration: underline; }
+/* ---- Toasts (Phase 7.2) ---- */
+.toast-region {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  gap: 10px;
+  z-index: 50;
 }
+
+.toast {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-md);
+  max-width: 320px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
