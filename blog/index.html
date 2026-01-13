@@ -1,136 +1,116 @@
 
-    
-<!doctype html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog · Ashish Dixit</title>
-    <meta name="description" content="Notes on software engineering, architecture, and AI—practical, opinionated, and implementation-focused." />
-    <link rel="stylesheet" href="/assets/styles.css" />
-  </head>
+    ---
+layout: layouts/base.njk
+title: Blog
+permalink: "blog/index.html"
+---
 
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" role="banner">
-      <div class="container header-inner">
-        <div class="brand">
-          <a class="brand-link" href="/">Ashish Dixit</a>
-          <div class="brand-tagline">Engineering · Architecture · AI</div>
-        </div>
 
-        <div class="header-actions">
-          <button
-            class="icon-btn"
-            type="button"
-            id="themeToggle"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-            aria-pressed="false"
-          >
-            <span aria-hidden="true">◐</span>
-          </button>
+<section class="section">
+  <div class="section-head">
+    <h1>Blog</h1>
+    <span class="muted">4 posts</span>
+  </div>
 
-          <details class="menu">
-            <summary class="icon-btn" aria-label="Open menu" title="Menu">
-              <span aria-hidden="true">☰</span>
-            </summary>
-
-            <nav class="nav-panel" aria-label="Primary">
-              <a href="/">Home</a>
-              <a href="/blog/">Blog</a>
-              <a href="/series/">Series</a>
-            </nav>
-          </details>
-
-          <nav class="nav-inline" aria-label="Primary">
-            <a href="/">Home</a>
-            <a href="/blog/">Blog</a>
-            <a href="/series/">Series</a>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <main id="main" class="container" role="main">
-      
-        
-<h1>Blog</h1>
-
-<ul>
   
-    <li>
-      <a href="/posts/2026-01-25-series-blog-test-2/">Series blog test 2</a>
+    <div class="grid">
       
-        
-          <small> — Tue Jan 13 2026</small>
-        
+        <article class="card">
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="/posts/2026-01-25-series-blog-test-2/">Series blog test 2</a>
+            </h2>
+
+            <div class="card-meta">
+              
+                
+                  <span>Tue Jan 13 2026</span>
+                
+              
+
+              
+                <span class="meta-sep">·</span>
+                <a class="badge" href="/series/ai-for-architects/">
+                  AI for Architects
+                  
+                </a>
+              
+            </div>
+
+            
+          </div>
+        </article>
       
+        <article class="card">
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="/posts/2026-01-23-series-blog-test1/">Series  - blog  Test 1</a>
+            </h2>
+
+            <div class="card-meta">
+              
+                
+                  <span>Wed Jan 07 2026</span>
+                
+              
+
+              
+                <span class="meta-sep">·</span>
+                <a class="badge" href="/series/ai-for-architects/">
+                  AI for architects
+                  
+                </a>
+              
+            </div>
+
+            
+          </div>
+        </article>
       
-    </li>
+        <article class="card">
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="/posts/2026-01-10-demystifying-ai-agents/">demystifying ai agents</a>
+            </h2>
+
+            <div class="card-meta">
+              
+                
+                  <span>Tue Jan 06 2026</span>
+                
+              
+
+              
+            </div>
+
+            
+          </div>
+        </article>
+      
+        <article class="card">
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="/posts/hello-world/">Hello World</a>
+            </h2>
+
+            <div class="card-meta">
+              
+                
+                  <span>Mon Jan 05 2026</span>
+                
+              
+
+              
+            </div>
+
+            
+              <p class="card-desc">First test post rendered by Eleventy using the post layout.</p>
+            
+          </div>
+        </article>
+      
+    </div>
   
-    <li>
-      <a href="/posts/2026-01-23-series-blog-test1/">Series  - blog  Test 1</a>
-      
-        
-          <small> — Wed Jan 07 2026</small>
-        
-      
-      
-    </li>
-  
-    <li>
-      <a href="/posts/2026-01-10-demystifying-ai-agents/">demystifying ai agents</a>
-      
-        
-          <small> — Tue Jan 06 2026</small>
-        
-      
-      
-    </li>
-  
-    <li>
-      <a href="/posts/hello-world/">Hello World</a>
-      
-        
-          <small> — Mon Jan 05 2026</small>
-        
-      
-      
-        <div>First test post rendered by Eleventy using the post layout.</div>
-      
-    </li>
-  
-</ul>
-
-      
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-      <div class="container footer-inner">
-        <div class="footer-left">
-          <div class="footer-brand">Ashish Dixit</div>
-          <div class="footer-tagline">Engineering · Architecture · AI</div>
-        </div>
-
-        <div class="footer-right">
-          
-            <a href="https://github.com/&lt;username&gt;">GitHub</a>
-            <a href="https://www.linkedin.com/in/&lt;your-profile&gt;/">LinkedIn</a>
-            <a href="mailto:&lt;you@example.com&gt;">Email</a>
-          
-          <a href="/rss.xml">RSS</a>
-        </div>
-      </div>
-    </footer>
-
-    
-    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
-
-    
-    <script src="/assets/js/toast.js" defer></script>
-    <script src="/assets/js/theme.js" defer></script>
-  </body>
-</html>
+</section>
 
