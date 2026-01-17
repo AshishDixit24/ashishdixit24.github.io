@@ -375,3 +375,34 @@ pre {
 .home-desc { margin-top: 12px; max-width: 70ch; color: var(--muted); }
 .home-cta { margin-top: var(--space-4); display: flex; gap: 10px; flex-wrap: wrap; }
 
+/* ---- Tag chips (Phase 7.4) ---- */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: var(--space-3); }
+.chips-wrap { margin-top: 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+}
+.chip:hover { text-decoration: underline; }
+
+.chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
