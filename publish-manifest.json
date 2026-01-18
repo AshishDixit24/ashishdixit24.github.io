@@ -1,12 +1,12 @@
 {
-  "event_at_utc": "2026-01-18T15:06:10Z",
+  "event_at_utc": "2026-01-18T16:27:50Z",
   "command": "publish",
   "issue_number": 7,
   "source": {
     "workbench_repo": "AshishDixit24/blog-workbench",
-    "workbench_sha": "d553f3d9344f0f0b9a9ef289a963d74ed33739c8",
-    "run_id": "21113816625",
-    "run_number": "37",
+    "workbench_sha": "be8dc32254d2181685d39a75ffafbe4cf3006416",
+    "run_id": "21114939465",
+    "run_number": "38",
     "workflow": "Publish/unpublish/trash from issue comment"
   },
   "counts": {
