@@ -69,10 +69,46 @@
     <span class="muted">4 posts</span>
   </div>
 
+  <div class="controls" role="region" aria-label="Blog controls">
+    <label class="control control-grow">
+      <span class="control-label">Search</span>
+      <input id="blogSearch" class="input" type="search" placeholder="Search posts…" autocomplete="off" />
+    </label>
+  
+    <label class="control">
+      <span class="control-label">Sort</span>
+      <select id="blogSort" class="select">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="title">Title A–Z</option>
+      </select>
+    </label>
+  
+    <button id="clearFilters" class="btn btn-ghost" type="button">Clear</button>
+  </div>
+
+<div id="blogTagFilters" class="chips chips-wrap" aria-label="Filter by tags"></div>
+
+<p id="resultHint" class="muted" style="margin-top: 10px;"></p>
+
+
   
     <div class="grid">
       
-        <article class="card">
+      
+      
+        
+          
+        
+      
+
+        <article
+          class="card"
+          data-title="demystifying ai agents"
+          data-desc=""
+          data-tags="ai,agents,architecture"
+          data-date="2026-01-18T02:39:32.000Z"
+        >
           <div class="card-body">
             <h2 class="card-title">
               <a href="/posts/2026-01-10-demystifying-ai-agents/">demystifying ai agents</a>
@@ -81,7 +117,7 @@
             <div class="card-meta">
               
                 
-                  <span>Sat Jan 17 2026</span>
+                  <span>Sun Jan 18 2026</span>
                 
               
 
@@ -108,7 +144,20 @@
           </div>
         </article>
       
-        <article class="card">
+      
+      
+        
+          
+        
+      
+
+        <article
+          class="card"
+          data-title="Series blog test 2"
+          data-desc=""
+          data-tags=""
+          data-date="2026-01-13T04:34:53.000Z"
+        >
           <div class="card-body">
             <h2 class="card-title">
               <a href="/posts/2026-01-25-series-blog-test-2/">Series blog test 2</a>
@@ -140,7 +189,20 @@
           </div>
         </article>
       
-        <article class="card">
+      
+      
+        
+          
+        
+      
+
+        <article
+          class="card"
+          data-title="Series  - blog  Test 1"
+          data-desc=""
+          data-tags=""
+          data-date="2026-01-07T02:17:01.000Z"
+        >
           <div class="card-body">
             <h2 class="card-title">
               <a href="/posts/2026-01-23-series-blog-test1/">Series  - blog  Test 1</a>
@@ -172,7 +234,20 @@
           </div>
         </article>
       
-        <article class="card">
+      
+      
+        
+          
+        
+      
+
+        <article
+          class="card"
+          data-title="Hello World"
+          data-desc="First test post rendered by Eleventy using the post layout."
+          data-tags="demo"
+          data-date="2026-01-05T00:00:00.000Z"
+        >
           <div class="card-body">
             <h2 class="card-title">
               <a href="/posts/hello-world/">Hello World</a>
@@ -209,6 +284,8 @@
     </div>
   
 </section>
+<script src="/assets/js/blog-controls.js" defer></script>
+
 
 
       
