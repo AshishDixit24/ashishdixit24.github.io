@@ -61,6 +61,11 @@
   <article class="post">
 
     
+    <div class="reading-progress" aria-hidden="true">
+      <div id="readingProgressBar" class="reading-progress-bar"></div>
+    </div>
+
+    
       <div class="series-banner">
         <small>
           Part of series:
@@ -91,20 +96,26 @@
 
         
           <span class="meta-sep">·</span>
-          <span class="post-tags">
+          <div class="post-tags">
             
 
 
 
 
-          </span>
+          </div>
         
       </div>
 
       
+
+      
+      <div class="post-actions">
+        <button id="shareBtn" class="btn btn-ghost" type="button">Share</button>
+        <button id="copyLinkBtn" class="btn btn-ghost" type="button">Copy link</button>
+      </div>
     </header>
 
-    <div class="post-body">
+    <div id="postContent" class="post-body">
       <h1>Series  - blog  Test 1</h1>
 <p>Series: AI for architects</p>
 <p><strong>Thesis:</strong> Series  - blog  Test 1</p>
@@ -115,6 +126,9 @@
 
     </div>
   </article>
+
+  <script src="/assets/js/progress.js" defer></script>
+  <script src="/assets/js/share.js" defer></script>
 
     </main>
 
