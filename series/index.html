@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/styles.css" />
   </head>
 
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" role="banner">
@@ -69,19 +69,25 @@
     <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
     <div class="footer-left">
-      <div class="footer-brand">DigitalNeurons</div>
-      <div class="footer-tagline">Signals into systems. Ideas into impact</div>
+      <div class="footer-copy">
+        © <span id="footerYear"></span> DigitalNeurons. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/rss.xml">RSS</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
     </div>
 
     <div class="footer-right">
-      
-        <a href="https://github.com/&lt;username&gt;">GitHub</a>
-        <a href="https://www.linkedin.com/in/&lt;your-profile&gt;/">LinkedIn</a>
-        <a href="mailto:&lt;you@example.com&gt;">Email</a>
-      
-      <a href="/rss.xml">RSS</a>
+      <a class="muted-link" href="#top">Back to top ↑</a>
     </div>
   </div>
+
+  <script>
+    (function(){ var y = document.getElementById("footerYear"); if (y) y.textContent = String(new Date().getFullYear()); })();
+  </script>
 </footer>
 
 
