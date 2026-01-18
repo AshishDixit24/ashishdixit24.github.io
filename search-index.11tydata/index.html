@@ -1,0 +1,33 @@
+// DevNotes
+// - Purpose: Build a JSON search index at /search-index.json without HTML escaping.
+// - Runs: during Eleventy build.
+// - Data: collections.posts (tagged "post").
+// - Output: JSON string (valid for fetch().json()).
+
+module.exports = {
+  permalink: "search-index.json",
+  eleventyExcludeFromCollections: true,
+  layout: null,
+  render: (data) => {
+    const posts = (data.collections && data.collections.posts) ? data.collections.posts : [];
+
+    const items = posts.map((p) => {
+      const d = p.date;
+      const date = d && typeof d.toISOString === "function" ? d.toISOString() : (d ? String(d) : "");
+      const tags = Array.isArray(p.data && p.data.tags) ? p.data.tags.filter((t) => t && t !== "post") : [];
+
+      return {
+        url: p.url || "",
+        title: (p.data && p.data.title) ? String(p.data.title) : "",
+        description: (p.data && p.data.description) ? String(p.data.description) : "",
+        date,
+        tags,
+        series_id: (p.data && p.data.series_id) ? String(p.data.series_id) : "",
+        series_title: (p.data && p.data.series_title) ? String(p.data.series_title) : "",
+        series_part: (p.data && p.data.series_part) ? String(p.data.series_part) : "",
+      };
+    });
+
+    return JSON.stringify(items);
+  },
+};
