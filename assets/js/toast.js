@@ -14,6 +14,7 @@
   function toast(message, opts) {
     const options = opts || {};
     const ms = typeof options.ms === "number" ? options.ms : 2200;
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const region = ensureRegion();
     if (!region) return;
@@ -25,9 +26,17 @@
 
     region.appendChild(el);
 
-    requestAnimationFrame(() => el.classList.add("show"));
-
+    if (reduceMotion) {
+      el.classList.add("show");
+    } else {
+      requestAnimationFrame(() => el.classList.add("show"));
+    }
+    
     window.setTimeout(() => {
+      if (reduceMotion) {
+        el.remove();
+        return;
+      }
       el.classList.remove("show");
       window.setTimeout(() => el.remove(), 220);
     }, ms);

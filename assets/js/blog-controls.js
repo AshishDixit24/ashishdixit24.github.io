@@ -23,7 +23,7 @@
     tags: new Set(),
     index: [],
   };
-
+  let lastVisible = null;
   function norm(s) {
     return String(s || "").toLowerCase().trim();
   }
@@ -122,7 +122,9 @@
 
     hintEl.textContent = `${visible} result${visible === 1 ? "" : "s"}`;
 
-    if (visible === 0 && window.toast) window.toast("No results");
+    if (visible === 0 && lastVisible !== 0 && window.toast) window.toast("No results");
+    lastVisible = visible;
+
   }
 
   function clearAll() {

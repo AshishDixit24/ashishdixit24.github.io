@@ -29,7 +29,13 @@
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" role="banner">
+    
+
+
+
+
+
+<header class="site-header" role="banner">
   <div class="container header-inner">
     <div class="brand">
       <a class="brand-link" href="/">DigitalNeurons</a>
@@ -48,12 +54,19 @@
         <span aria-hidden="true">◐</span>
       </button>
 
-      <details class="menu">
-        <summary class="icon-btn" aria-label="Open menu" title="Menu">
+      <details class="menu" id="primaryMenu">
+        <summary
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Open menu"
+          title="Menu"
+          aria-controls="primaryNavPanel"
+          aria-expanded="false"
+        >
           <span aria-hidden="true">☰</span>
         </summary>
-
-        <nav class="nav-panel" aria-label="Primary">
+      
+        <nav class="nav-panel" id="primaryNavPanel" aria-label="Primary">
           <a href="/">Home</a>
           <a href="/blog/">Blog</a>
           <a href="/series/">Series</a>
@@ -67,12 +80,13 @@
         <a href="/series/">Series</a>
         <a href="/tags/">Tags</a>
       </nav>
+
     </div>
   </div>
 </header>
 
 
-    <main id="main" class="container" role="main">
+    <main id="main" class="container" role="main" tabindex = "-1">
       
         
 <section class="section">
@@ -101,7 +115,9 @@
       
     </main>
 
-    <footer class="site-footer" role="contentinfo">
+    
+
+<footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
     <div class="footer-left">
       <div class="footer-copy">
@@ -109,7 +125,7 @@
       </div>
       <div class="footer-links">
         <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
+        <a href="/contact/" aria-current="page">Contact</a>
         <a href="/rss.xml">RSS</a>
         <a href="/sitemap.xml">Sitemap</a>
       </div>
@@ -132,6 +148,7 @@
     
     <script src="/assets/js/toast.js" defer></script>
     <script src="/assets/js/theme.js" defer></script>
+    <script src="/assets/js/menu.js" defer></script>
   </body>
 </html>
 

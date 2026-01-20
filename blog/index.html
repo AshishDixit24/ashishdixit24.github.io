@@ -29,7 +29,13 @@
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" role="banner">
+    
+
+
+
+
+
+<header class="site-header" role="banner">
   <div class="container header-inner">
     <div class="brand">
       <a class="brand-link" href="/">DigitalNeurons</a>
@@ -48,14 +54,21 @@
         <span aria-hidden="true">◐</span>
       </button>
 
-      <details class="menu">
-        <summary class="icon-btn" aria-label="Open menu" title="Menu">
+      <details class="menu" id="primaryMenu">
+        <summary
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Open menu"
+          title="Menu"
+          aria-controls="primaryNavPanel"
+          aria-expanded="false"
+        >
           <span aria-hidden="true">☰</span>
         </summary>
-
-        <nav class="nav-panel" aria-label="Primary">
+      
+        <nav class="nav-panel" id="primaryNavPanel" aria-label="Primary">
           <a href="/">Home</a>
-          <a href="/blog/">Blog</a>
+          <a href="/blog/" aria-current="page">Blog</a>
           <a href="/series/">Series</a>
           <a href="/tags/">Tags</a>
         </nav>
@@ -63,16 +76,17 @@
 
       <nav class="nav-inline" aria-label="Primary">
         <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
+        <a href="/blog/" aria-current="page">Blog</a>
         <a href="/series/">Series</a>
         <a href="/tags/">Tags</a>
       </nav>
+
     </div>
   </div>
 </header>
 
 
-    <main id="main" class="container" role="main">
+    <main id="main" class="container" role="main" tabindex = "-1">
       
         
 
@@ -88,12 +102,13 @@
   <div class="controls" role="region" aria-label="Blog controls">
     <label class="control control-grow">
       <span class="control-label">Search</span>
-      <input id="blogSearch" class="input" type="search" placeholder="Search posts…" autocomplete="off" />
+      <input id="blogSearch" class="input" type="search" placeholder="Search posts…" autocomplete="off"
+  aria-controls="blogResults" aria-describedby="resultHint" />
     </label>
   
     <label class="control">
       <span class="control-label">Sort</span>
-      <select id="blogSort" class="select">
+      <select id="blogSort" class="select" aria-controls="blogResults" aria-describedby="resultHint">
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
         <option value="title">Title A–Z</option>
@@ -105,11 +120,12 @@
 
 <div id="blogTagFilters" class="chips chips-wrap" aria-label="Filter by tags"></div>
 
-<p id="resultHint" class="muted" style="margin-top: 10px;"></p>
+<p id="resultHint" class="muted" role="status" aria-live="polite" aria-atomic="true" style="margin-top: 10px;"></p>
+
 
 
   
-    <div class="grid">
+    <div class="grid" id="blogResults">
       
       
       
@@ -123,7 +139,7 @@
           data-title="demystifying ai agents"
           data-desc=""
           data-tags="ai,agents,architecture"
-          data-date="2026-01-19T21:05:24.000Z"
+          data-date="2026-01-20T00:11:41.000Z"
         >
           <div class="card-body">
             <h2 class="card-title">
@@ -133,7 +149,7 @@
             <div class="card-meta">
               
                 
-                  <span>Mon Jan 19 2026</span>
+                  <span>Tue Jan 20 2026</span>
                 
               
 
@@ -307,7 +323,9 @@
       
     </main>
 
-    <footer class="site-footer" role="contentinfo">
+    
+
+<footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
     <div class="footer-left">
       <div class="footer-copy">
@@ -338,6 +356,7 @@
     
     <script src="/assets/js/toast.js" defer></script>
     <script src="/assets/js/theme.js" defer></script>
+    <script src="/assets/js/menu.js" defer></script>
   </body>
 </html>
 
